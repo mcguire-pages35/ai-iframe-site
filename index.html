@@ -33,5 +33,21 @@
             sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups">
         </iframe>
     </div>
+    <button onclick="goFullscreen()">Play in Fullscreen</button>
+
+<script>
+function goFullscreen() {
+    const iframe = document.querySelector('iframe');
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    }
+}
+</script>
 </body>
 </html>
